@@ -84,7 +84,7 @@ void doFunnyAnimation(){
   if (buttonCounter == 15)
   {
     buttonCounter = 0;
-    if (expansionCounter == 3)
+    if (expansionCounter == 1)
     {
       expansionCounter = 0;
       myflag = !myflag;
