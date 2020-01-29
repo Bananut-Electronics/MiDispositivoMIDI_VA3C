@@ -7,7 +7,7 @@
  * See license and documentation in the repository.                 *
  * https://github.com/bananut-electronics                           *
  *                                                                  *
- * Code:     Expansion_4x4.ino                                      *
+ * Code:     MDM_V3_Library4x4.ino                                      *
  * Hardware: Single 4x4 boards configuration        *
  * Brief:    This code handles a MiDispositivoMIDI V3 with three    *
  *           expansions, which is, four devices in total. They have *
