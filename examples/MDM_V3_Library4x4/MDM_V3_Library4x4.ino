@@ -23,7 +23,7 @@
 #include <MiDispositivoMIDI_V3.h>
 
 BoardRoles bRoles[1] = {TOUCHPAD};
-MiDispositivoMIDI_V3 mdm = MiDispositivoMIDI_V3(ONE_DEVICES_4x4, bRoles);
+MiDispositivoMIDI_V3 mdm = MiDispositivoMIDI_V3(SINGLE_DEVICES_4x4, bRoles);
 
 // Couple of variables for the led animation
 int buttonCounter    = 0;
