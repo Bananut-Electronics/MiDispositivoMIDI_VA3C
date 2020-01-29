@@ -7,11 +7,11 @@
  * See license and documentation in the repository.                 *
  * https://github.com/bananut-electronics                           *
  *                                                                  *
- * Code:     Expansion_8x8.ino                                      *
+ * Code:     MDM_V3_Library4x4.ino                                      *
  * Hardware: One 4x4 board                                          *
  * Brief:    This code handles a MiDispositivoMIDI V3 with three    *
  *           expansions, which is, four devices in total. They have *
- *           to be connected in a 8x8, creating an array of 64      *
+ *           to be connected in a 4x4, creating an array of 16      *
  *           buttons. With this code you can set a default color    *
  *           when the button is an idle state, and another color    *
  *           when the button is pushed. There is also a subroutine  *
