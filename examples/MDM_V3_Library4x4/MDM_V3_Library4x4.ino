@@ -7,11 +7,11 @@
  * See license and documentation in the repository.                 *
  * https://github.com/bananut-electronics                           *
  *                                                                  *
- * Code:     MDM_V3_Library4x4.ino                                      *
- * Hardware: One 4x4 board                                          *
+ * Code:     Expansion_4x4.ino                                      *
+ * Hardware: Single 4x4 boards configuration        *
  * Brief:    This code handles a MiDispositivoMIDI V3 with three    *
  *           expansions, which is, four devices in total. They have *
- *           to be connected in a 4x4, creating an array of 16      *
+ *           to be connected in a 4x4, creating an array of 16     *
  *           buttons. With this code you can set a default color    *
  *           when the button is an idle state, and another color    *
  *           when the button is pushed. There is also a subroutine  *
@@ -22,34 +22,44 @@
 // Include the library
 #include <MiDispositivoMIDI_V3.h>
 
+// Creates a mdm with four pages and only one expansion
 BoardRoles bRoles[1] = {TOUCHPAD};
-MiDispositivoMIDI_V3 mdm = MiDispositivoMIDI_V3(SINGLE_DEVICES_4x4, bRoles);
+MiDispositivoMIDI_V3 mdm = MiDispositivoMIDI_V3(SINGLE_DEVICE_4X4, bRoles);
 
 // Couple of variables for the led animation
 int buttonCounter    = 0;
 int expansionCounter = 0;
 bool myflag          = 0;
 
+
 void setup() {
 
-  // Important note: Since this version contains a total of 64
-  // buttons and 64 RGB leds, it is strongly recommended to not
-  // use values greater than 150 for each color. In a 4x4 version
-  // they can be up to 255, but in this case, the USB does not have
-  // enough power to light up all leds in more than 150.
-  // If you are not going to have all leds on, you can use 255, but
-  // keep in mind that when the power is not enough, the behaviour
-  // is unexpected.
+  // Assign MIDI notes to buttons. Note that if you are using
+  // more than one expansion (more than one 4x4 device) you will
+  // need to change the size of this array. Always 1 value per button.
+  uint8_t midiNotes [1][16] = {{ 36, 37, 38, 39,
+                                 40, 41, 42, 43,
+                                 44, 45, 46, 47,
+                                 48, 49, 50, 51}};
+  mdm.setMidiNotes(midiNotes);
 
-  // Define your colors when the button is off
-  uint8_t offColors[3] = {40, 40, 0};
+  // Same with the so called velocities of the notes. This means the
+  // intensity of each note.
+  uint8_t midiVelocities [1][16] = {{127,127,127,127,
+                                    127,127,127,127,
+                                    127,127,127,127,
+                                    127,127,127,127}};
+
+  mdm.setMidiVeloc(midiVelocities);
+  // Configure the colors when the LED is not pressed
+  uint8_t offColors[3] = {255, 0, 0};
   mdm.setOffColors( offColors );
 
-  // Define your colors when the button is pressed
-  uint8_t onColors[3] = {0, 50, 0};
+  // Configure the colors when the LED is pressed
+  uint8_t onColors[3] = {0, 255, 0};
   mdm.setOnColors( onColors );
 
-  // Set a call to an animation each .025 sec
+   // Set a call to an animation each .025 sec
   mdm.setInterrupt(doFunnyAnimation, 0.025);
 }
 
