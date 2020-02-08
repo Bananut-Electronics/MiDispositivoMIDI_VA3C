@@ -6,7 +6,7 @@ try:
 except EOFError:
 	x = z.split(";")
 	
-#stripMax = 255  # WS2812B
+stripMax = 255  # WS2812B
 #stripMax = 127  # LPD8806
 
 mul = float(stripMax) / float(63)
