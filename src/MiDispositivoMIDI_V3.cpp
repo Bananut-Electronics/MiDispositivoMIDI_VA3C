@@ -585,7 +585,7 @@ void MiDispositivoMIDI_V3::setRgbColors(uint8_t copyFrom[RGB_COLORS], uint8_t co
 */
 void MiDispositivoMIDI_V3::generateNotesVeloc(uint8_t numberExtensions)
 {
-    int note = 30;
+    int note = 36;
     for (int i = 0; i < numberExtensions; i++)
     {
         for (int j = 0; j < LEDPAD_NUM; j++)
