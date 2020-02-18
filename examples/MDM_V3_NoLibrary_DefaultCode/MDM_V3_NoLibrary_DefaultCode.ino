@@ -48,7 +48,7 @@
 #define LEDPAD_EXT  4    //Number of LED PAD Extension Boards [1:4]
 #define PAD_THR     500  //PAD Value Threshold for Action
 #define MAX_PAGE    4    //Maximum number of pages.
-#define MIDI_CHANNEL 0   //Default MIDI channel
+#define MIDI_CHANNEL 1   //Default MIDI channel
 
 // This following section can be change by the user. Further info in doc.
 // ---------------------------------------------------------------------//
@@ -63,10 +63,10 @@
                                                                         //
 // MIDI notes definition                                                //
 uint8_t notes[4][4] = {                                                 //
-{32,33,34,35},                                                          //
 {36,37,38,39},                                                          //
 {40,41,42,43},                                                          //
 {44,45,46,47},                                                          //
+{48,49,50,51},                                                          //
 };                                                                      //
 uint8_t velocity[4][4] = {                                              //
 {127,127,127,127},                                                      //
